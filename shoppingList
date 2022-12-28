@@ -1,0 +1,40 @@
+
+print('here is the Menu, choose the items that you want:\n')
+menu=['pizza', 'hamburger','cheese', 'rice']
+
+for item in menu:
+    print('|{}|'.format(item))
+
+user_decision='y'
+menu_items=[]
+while(user_decision=='y' or user_decision=='Y'):
+    print('Your shopping list:')
+    for item in menu_items:
+        print('|{}|'.format(item))
+    print('do you want to add or delete item? [a,d]')
+    add_delete=input()
+    if add_delete=='a' or add_delete=='A':
+        print('Enter the Item:')
+        added_item=input()
+        if added_item in menu:
+            menu_items.append(added_item)
+            print('item added')
+        else:
+            print('this is not in the menu')
+    if add_delete=='d' or add_delete=='D':
+        print('which one of the items should be deleted?')
+        for item in menu_items:
+            print('|{}|'.format(item))
+        delete_item=input()
+
+        if delete_item in menu_items:
+            menu_items.remove(
+                delete_item
+            )
+            print('deleted the item')
+        else: print('not in the list')
+
+
+    print('Do you want to continue shopping?[y, n]')
+    user_decision=input()
+
